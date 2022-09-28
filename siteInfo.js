@@ -14,15 +14,15 @@ import lightTheme from "./styles/themes/theme";
 
 // 1. Meta
 
-const siteName = "ACADEMIC";
+const siteName = "SICKTOOTH";
 // const siteName = "Cosima Hewes";
 
 // 2. Layout
 
 const navbar = {
     buttonOne: {
-        text: "Contact",
-        href: "/contact",
+        text: "Subscribe",
+        href: "/subscribe",
         variant: "outlined",
     },
 };
@@ -403,14 +403,15 @@ const galleryConfig = {
     subCategories: [],
     fields: [
         { name: "Title", type: "text", value: "" },
+        { name: "Author", type: "text", value: "" },
         {
-            name: "Description",
+            name: "Hook",
             type: "text",
             value: "",
             multiline: true,
             rows: 4,
         },
-        { name: "Year", type: "number", value: "" },
+        { name: "Published", type: "number", value: "" },
     ],
 };
 
@@ -536,30 +537,43 @@ const eventConfig = {
 };
 
 const pages = [
-    { name: "curriculum vitae", href: "/curriculumvitae", subPages: [] },
     {
-        name: "publications",
-        href: "/publications",
+        name: "issues",
+        href: "/issues",
         subPages: [
-            { name: "Books", href: "/publications/books" },
-            { name: "Articles", href: "/publications/articles" },
+            { name: "Latest", href: "/issues/latest" },
+            { name: "Archive", href: "/issues/archive" },
         ],
     },
     {
-        name: "events",
-        href: "/events",
+        name: "fiction",
+        href: "/fiction",
         subPages: [],
+    },
+    {
+        name: "poetry",
+        href: "/poetry",
+        subPages: [],
+    },
+    {
+        name: "articles",
+        href: "/articles",
+        subPages: [],
+    },
+    {
+        name: "contributors",
+        href: "/contributors",
+        subPages: [
+            { name: "Writers", href: "/contributors/writers" },
+            { name: "Artists", href: "/contributors/artists" },
+        ],
     },
     {
         name: "about",
         href: "/about",
-        subPages: [
-            { name: "Teaching", href: "/about/artist" },
-            { name: "Research", href: "/about/studio" },
-            { name: "Accomplishments", href: "/about/work" },
-        ],
+        subPages: [],
     },
-    { name: "videos", href: "/videos", subPages: [] },
+    { name: "submissions", href: "/submissions", subPages: [] },
 ];
 
 const videos = [

@@ -22,21 +22,6 @@ const Projects = () => {
                     );
                 })}
             </Grid>
-            {/* <Typography
-                variant="h4"
-                sx={{ textAlign: "center", marginTop: "2em" }}
-            >
-                Secondary Categories
-            </Typography>
-            <Grid container className="section" spacing={4}>
-                {galleryStylesCategories.map((category, index) => {
-                    return (
-                        <Grid key={index} item xs={12} sm={4} md={3}>
-                            <GalleryCategoryPreview category={category} />
-                        </Grid>
-                    );
-                })}
-            </Grid> */}
         </PageLayout>
     );
 };

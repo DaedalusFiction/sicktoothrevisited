@@ -187,7 +187,7 @@ const FirebaseUploadForm = ({
                 display: "flex",
                 flexDirection: "column",
                 gap: "1rem",
-                backgroundColor: theme.palette.primary.main,
+                backgroundColor: theme.palette.background.accent,
                 padding: "1em",
                 borderRadius: "5px",
             }}

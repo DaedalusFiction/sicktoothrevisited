@@ -27,7 +27,7 @@ const FirestoreListing = ({
     return (
         <Box
             sx={{
-                backgroundColor: theme.palette.primary.main,
+                backgroundColor: theme.palette.background.accent,
                 padding: "1em",
                 borderRadius: "5px",
                 height: "100%",

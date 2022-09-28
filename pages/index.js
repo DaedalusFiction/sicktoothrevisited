@@ -1,55 +1,45 @@
-import BlockPhoto from "../components/general/BlockPhoto";
-import BlockText from "../components/general/BlockText";
-import Hero from "../components/home/Hero";
-import Services from "../components/home/Services";
-import Meta from "../components/home/Meta";
-import MosaicSection from "../components/mosaic/MosaicSection";
+import { Typography } from "@mui/material";
+import { Grid } from "@mui/material";
+import { Container } from "@mui/system";
 
-import {
-    siteName,
-    homeGalleryContent,
-    blockTextOne,
-    blockTextTwo,
-    blockTextThree,
-    blockPhotoContentOne,
-    mosaicSectionContentOne,
-    mosaicSectionContentTwo,
-    mosaicSectionContentThree,
-    blockPhotoContentTwo,
-    showcaseContentOne,
-} from "../siteInfo";
-import HomeGallery from "../components/home/HomeGallery";
-import { Box } from "@mui/material";
-import Showcase from "../components/home/Showcase";
-import EventsPreview from "../components/home/EventsPreview";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import PoemPreview from "../components/home/PoemPreview";
+import { db } from "../firebase";
 
-export default function Home() {
+export default function Home({ poems }) {
     return (
-        <Box sx={{ position: "relative" }}>
-            <Meta siteName={siteName} />
-            <Hero siteName={siteName} />
-            <Showcase showcaseContent={showcaseContentOne} />
-            <BlockPhoto blockPhotoContent={blockPhotoContentOne} reverse />
-            <EventsPreview />
-            <BlockText text={blockTextOne} />
-            {/* 
-      <MosaicSection
-        mosaicSectionContent={mosaicSectionContentOne}
-        variation={1}
-      />
-      <Services preview/>
-      <BlockText text={blockTextTwo} />
-      <BlockPhoto blockPhotoContent={blockPhotoContentTwo} />
-      <MosaicSection
-        reverse
-        mosaicSectionContent={mosaicSectionContentTwo}
-        variation={2}
-      />
-      <BlockText text={blockTextThree} />
-      <MosaicSection
-        mosaicSectionContent={mosaicSectionContentThree}
-        variation={3}
-      /> */}
-        </Box>
+        <Container maxWidth="xl" sx={{ paddingTop: "8rem" }}>
+            <Grid container>
+                <Grid item xs={12} md={3}>
+                    {poems &&
+                        poems.map((poem, index) => {
+                            return <PoemPreview poem={poem} key={index} />;
+                        })}
+                </Grid>
+                <Grid item xs={12} md={6}></Grid>
+                <Grid item xs={12} md={3}></Grid>
+            </Grid>
+        </Container>
     );
 }
+
+export const getStaticProps = async (context) => {
+    const poemsRef = collection(db, "gallery");
+    const q1 = query(
+        poemsRef,
+
+        where("categories", "array-contains", "animals")
+    );
+
+    const queriedDocuments = await getDocs(q1);
+    let poems = [];
+    queriedDocuments.docs.forEach((doc, index) => {
+        poems = [...poems, doc.data()];
+    });
+
+    return {
+        props: {
+            poems,
+        },
+    };
+};
