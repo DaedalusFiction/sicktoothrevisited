@@ -2,25 +2,22 @@ import { Divider, Grid, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import React from "react";
-import ArticlePreview from "../../../components/home/ArticlePreview";
 import StoryPreview from "../../../components/home/StoryPreview";
 import PageLayout from "../../../components/layout/PageLayout";
 import { db } from "../../../firebase";
 
-const index = ({ articles }) => {
+const index = ({ fiction }) => {
     return (
-        <PageLayout name="Articles">
-            <Container maxWidth="sm">
-                <Grid className="section" container spacing={3}>
-                    {articles.map((article, index) => {
-                        return (
-                            <Grid key={index} item xs={12}>
-                                <ArticlePreview article={article} />
-                            </Grid>
-                        );
-                    })}
-                </Grid>
-            </Container>
+        <PageLayout name="Fiction">
+            <Grid className="section" container spacing={3}>
+                {fiction.map((story, index) => {
+                    return (
+                        <Grid key={index} item xs={12} sm={6} md={3}>
+                            <StoryPreview story={story} />
+                        </Grid>
+                    );
+                })}
+            </Grid>
         </PageLayout>
     );
 };

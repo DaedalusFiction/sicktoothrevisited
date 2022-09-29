@@ -23,20 +23,26 @@ const PoemPreview = ({ poem }) => {
             />
             <Box
                 sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: ".25rem",
                     margin: ".5rem 0",
                 }}
             >
-                <Typography variant="caption">[Fiction]</Typography>
-                <Typography variant="h4">Title of Poem Selection</Typography>
-                <Typography variant="body2" sx={{ margin: ".25rem 0" }}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Similique dolores fugiat rerum quis voluptatem eligendi
-                    facere minus fuga vel? Id!
+                <Box sx={{ display: "flex", gap: ".25em" }}>
+                    {poem.subCategories.map((subCategory, index) => {
+                        return (
+                            <Typography key={index} variant="caption">
+                                [{subCategory}]
+                            </Typography>
+                        );
+                    })}
+                </Box>
+
+                <Typography variant="h4" sx={{ textTransform: "uppercase" }}>
+                    {poem.fields[0].value}
                 </Typography>
-                <Typography variant="h6">By Writer Name</Typography>
+                <Typography variant="body2" sx={{ margin: ".25rem 0" }}>
+                    {poem.fields[2].value}
+                </Typography>
+                <Typography variant="h6">By {poem.fields[1].value}</Typography>
             </Box>
             <Divider variant="inset" sx={{ margin: "1rem 0 1.5rem 0" }} />
         </Box>

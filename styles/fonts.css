@@ -8,6 +8,11 @@
     src: url("/fonts/EBGaramond-VariableFont_wght.ttf") format("truetype");
     font-weight: 1 999;
 }
+@font-face {
+    font-family: "Playfair Display";
+    src: url("/fonts/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
+    font-weight: 1 999;
+}
 
 .color-test {
     color: #f7d195;

@@ -1,7 +1,8 @@
 import React from "react";
+import PageLayout from "../../../components/layout/PageLayout";
 
 const index = () => {
-    return <div>index</div>;
+    return <PageLayout name="Latest Issue"></PageLayout>;
 };
 
 export default index;

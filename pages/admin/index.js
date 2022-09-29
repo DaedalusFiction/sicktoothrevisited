@@ -46,7 +46,7 @@ const Admin = () => {
                                 <Grid item xs={12} md={6}>
                                     <FirebaseUploadForm
                                         config={galleryConfig}
-                                        folder="gallery"
+                                        folder="publications"
                                         updateCounter={updateCounter}
                                         setUpdateCounter={setUpdateCounter}
                                     />
@@ -54,7 +54,7 @@ const Admin = () => {
                                 <Grid item xs={12} md={6}>
                                     <FirestoreListing
                                         // category={galleryConfig.category}
-                                        folder="gallery"
+                                        folder="publications"
                                         updateCounter={updateCounter}
                                         setUpdateCounter={setUpdateCounter}
                                     />

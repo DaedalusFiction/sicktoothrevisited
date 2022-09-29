@@ -299,103 +299,61 @@ const galleryStylesCategories = [
 
 const galleryCategories = [
     {
-        name: "animals",
-        href: "/gallery/animals",
+        name: "fiction",
+        href: "/publications/fiction",
         image: {
             url: "/images/placeholder.webp",
             alt: "alt gallery image text",
         },
         subCategories: [
             {
-                name: "goats",
-                href: "/gallery/animals/goats",
+                name: "short story",
+                href: "/publications/fiction/shortstories",
                 image: {
                     url: "/images/placeholder.webp",
                     alt: "alt gallery image text",
                 },
             },
             {
-                name: "horses and cows",
-                href: "/gallery/animals/horses",
+                name: "flash fiction",
+                href: "/publications/fiction/flash",
                 image: { url: "/images/placeholder.webp", alt: "alt text" },
             },
             {
-                name: "turtles",
-                href: "/gallery/animals/turtles",
-                image: { url: "/images/placeholder.webp", alt: "alt text" },
-            },
-            {
-                name: "chickens",
-                href: "/gallery/animals/chickens",
+                name: "novella",
+                href: "/publications/fiction/novellas",
                 image: { url: "/images/placeholder.webp", alt: "alt text" },
             },
         ],
     },
     {
-        name: "landscapes",
-        href: "/gallery/landscapes",
+        name: "poetry",
+        href: "/publications/poetry",
         image: { url: "/images/placeholder.webp", alt: "alt text" },
-        subCategories: [
-            {
-                name: "mountains",
-                href: "/gallery/landscapes/mountains",
-                image: {
-                    url: "/images/placeholder.webp",
-                    alt: "alt gallery image text",
-                },
-            },
-            {
-                name: "waterfalls",
-                href: "/gallery/landscapes/waterfalls",
-                image: { url: "/images/placeholder.webp", alt: "alt text" },
-            },
-            {
-                name: "rivers",
-                href: "/gallery/landscapes/rivers",
-                image: { url: "/images/placeholder.webp", alt: "alt text" },
-            },
-            {
-                name: "valleys",
-                href: "/gallery/landscapes/valleys",
-                image: { url: "/images/placeholder.webp", alt: "alt text" },
-            },
-        ],
+        subCategories: [],
     },
     {
-        name: "portraits",
-        href: "/gallery/portraits",
+        name: "article",
+        href: "/publications/articles",
         image: { url: "/images/placeholder.webp", alt: "alt text" },
         subCategories: [
             {
-                name: "men",
-                href: "/gallery/portraits/men",
-                image: {
-                    url: "/images/placeholder.webp",
-                    alt: "alt gallery image text",
-                },
-            },
-            {
-                name: "women",
-                href: "/gallery/portraits/women",
+                name: "editorial",
+                href: "/publications/articles/editorials",
                 image: { url: "/images/placeholder.webp", alt: "alt text" },
             },
             {
-                name: "children",
-                href: "/gallery/portraits/children",
+                name: "letter",
+                href: "/publications/articles/letters",
                 image: { url: "/images/placeholder.webp", alt: "alt text" },
             },
             {
-                name: "elderly",
-                href: "/gallery/portraits/elderly",
+                name: "opinion",
+                href: "/publications/articles/letters",
                 image: { url: "/images/placeholder.webp", alt: "alt text" },
             },
         ],
     },
-    // {
-    //     name: "Black and White",
-    //     href: "/gallery/black%20and%20white",
-    //     image: { url: "/images/placeholder.webp", alt: "alt text" },
-    // },
 ];
 
 const galleryConfig = {
@@ -547,17 +505,17 @@ const pages = [
     },
     {
         name: "fiction",
-        href: "/fiction",
+        href: "/publications/fiction",
         subPages: [],
     },
     {
         name: "poetry",
-        href: "/poetry",
+        href: "/publications/poetry",
         subPages: [],
     },
     {
         name: "articles",
-        href: "/articles",
+        href: "/publications/articles",
         subPages: [],
     },
     {

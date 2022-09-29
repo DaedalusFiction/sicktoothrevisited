@@ -22,10 +22,12 @@ const FirebaseUploadForm = ({
         JSON.parse(JSON.stringify(config))
     );
     const [selectedImages, setSelectedImages] = useState([]);
+    const [selectedTextFile, setSelectedTextFile] = useState(null);
     const [previews, setPreviews] = useState([]);
     const [isUploading, setIsUploading] = useState(false);
     const [fileError, setFileError] = useState("false");
     const fileInputRef = useRef();
+    const textFileInputRef = useRef();
 
     const handleFieldChange = (e, field, index) => {
         const newFieldData = {
@@ -62,6 +64,15 @@ const FirebaseUploadForm = ({
         fileInputRef.current.children[0].value = null;
     };
 
+    const handleTextFileChange = (e) => {
+        console.log(e.target.files[0].type);
+        if (e.target.files[0].size > 1097152) {
+            setFileError("File size must be less than 1MB");
+            return;
+        }
+        setSelectedTextFile(e.target.files[0]);
+    };
+
     const handleRemovePreview = (preview) => {
         const newPreviews = previews.filter(
             (myPreview) => myPreview !== preview
@@ -83,7 +94,13 @@ const FirebaseUploadForm = ({
             setFileError("Please Enter a Title");
             return;
         }
+        if (selectedTextFile === null) {
+            setFileError("Please Select a Markdown File");
+            return;
+        }
         var downloadURLs = [];
+        let textFile = null;
+        let textFileURL = "";
         let error = false;
 
         //check to see if image already exists in storage
@@ -122,6 +139,31 @@ const FirebaseUploadForm = ({
             return;
         } else {
             setIsUploading(true);
+
+            const textStorageRef = ref(
+                storage,
+                `markdownFiles/${selectedTextFile.name}`
+            );
+            const uploadTextTask = uploadBytesResumable(
+                textStorageRef,
+                selectedTextFile
+            );
+
+            uploadTextTask.on(
+                "state_changed",
+                () => {},
+                () => {},
+                () => {
+                    // creates firestore database entry
+                    // setUploadProgress(0);
+                    getDownloadURL(uploadTextTask.snapshot.ref).then(
+                        (downloadURL) => {
+                            textFileURL = downloadURL;
+                        }
+                    );
+                }
+            );
+
             selectedImages.forEach(async (image) => {
                 const storageRef = ref(storage, `${folder}/${image.name}`);
 
@@ -131,9 +173,9 @@ const FirebaseUploadForm = ({
                     "state_changed",
                     (snapshot) => {
                         //to show upload progress as percentage
-                        const progress =
-                            (snapshot.bytesTransferred / snapshot.totalBytes) *
-                            100;
+                        // const progress =
+                        //     (snapshot.bytesTransferred / snapshot.totalBytes) *
+                        //     100;
                         // setUploadProgress(progress);
                     },
                     (error) => {
@@ -219,6 +261,33 @@ const FirebaseUploadForm = ({
                     .jpg and .png only. File size must be less than 2MB.
                 </Typography>
             </Box>
+            <Box>
+                <Button
+                    variant="outlined"
+                    color="secondary"
+                    onClick={() => {
+                        textFileInputRef.current.children[0].click();
+                    }}
+                >
+                    select Markdown File
+                </Button>
+                <Input
+                    variant="contained"
+                    accept=".md"
+                    type="file"
+                    sx={{ display: "none" }}
+                    ref={textFileInputRef}
+                    onChange={handleTextFileChange}
+                >
+                    Select Markdown File
+                </Input>
+                <br />
+                {selectedTextFile && (
+                    <Typography variant="caption">
+                        {selectedTextFile.name}
+                    </Typography>
+                )}
+            </Box>
             <Grid container spacing={1}>
                 {previews.length > 0 &&
                     previews.map((preview, index) => {
@@ -273,13 +342,12 @@ const FirebaseUploadForm = ({
                     />
                 );
             })}
-            {folder === "gallery" && (
-                <FirebaseCategorySelect
-                    formData={formData}
-                    setFormData={setFormData}
-                    galleryCategories={galleryCategories}
-                />
-            )}
+
+            <FirebaseCategorySelect
+                formData={formData}
+                setFormData={setFormData}
+                galleryCategories={galleryCategories}
+            />
 
             <ButtonWithConfirm
                 handleClick={handleUpload}
