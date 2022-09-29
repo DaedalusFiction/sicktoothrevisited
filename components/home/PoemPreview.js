@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import Image from "next/image";
 import React, { useState } from "react";
 
@@ -21,6 +21,24 @@ const PoemPreview = ({ poem }) => {
                 layout="responsive"
                 alt={poem.description}
             />
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: ".25rem",
+                    margin: ".5rem 0",
+                }}
+            >
+                <Typography variant="caption">[Fiction]</Typography>
+                <Typography variant="h4">Title of Poem Selection</Typography>
+                <Typography variant="body2" sx={{ margin: ".25rem 0" }}>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Similique dolores fugiat rerum quis voluptatem eligendi
+                    facere minus fuga vel? Id!
+                </Typography>
+                <Typography variant="h6">By Writer Name</Typography>
+            </Box>
+            <Divider variant="inset" sx={{ margin: "1rem 0 1.5rem 0" }} />
         </Box>
     );
 };

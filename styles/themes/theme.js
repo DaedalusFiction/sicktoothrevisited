@@ -82,6 +82,10 @@ theme = createTheme(theme, {
             fontWeight: "400",
             // color: darkTheme.palette.custom.dark,
         },
+        h6: {
+            fontWeight: "600",
+            fontSize: "1rem",
+        },
 
         subtitle1: {
             fontFamily: "EB Garamond",
@@ -107,9 +111,12 @@ theme = createTheme(theme, {
             fontFamily: "EB Garamond",
             fontWeight: "400",
             fontSize: "1.25rem",
-            lineHeight: "1.25rem",
-            // color: darkTheme.palette.custom.decorative,
+            lineHeight: "1.5rem",
+            color: theme.palette.custom.darkMuted,
             // fontFamily: darkTheme.typography.darkTheme.decorative,
+        },
+        caption: {
+            color: theme.palette.custom.darkMuted,
         },
     },
     components: {

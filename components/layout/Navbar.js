@@ -19,6 +19,7 @@ import { useRouter } from "next/router";
 const Navbar = () => {
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [expanded, setExpanded] = useState(false);
+    const [titleFontSize, setTitleFontSize] = useState("3.75rem");
     const router = useRouter();
     const currentPage = router.pathname.split("/")[1];
 
@@ -37,6 +38,7 @@ const Navbar = () => {
                 return;
             }
             setTrigger(scrollY > lastScrollY ? false : true);
+            setTitleFontSize(scrollY < lastScrollY ? "2.75rem" : "1.75rem");
             lastScrollY = scrollY > 0 ? scrollY : 0;
             ticking = false;
         };
@@ -72,12 +74,12 @@ const Navbar = () => {
     return (
         <Slide
             direction="down"
-            in={trigger}
+            in={true}
             sx={{
                 position: "fixed",
                 top: "0",
                 zIndex: "100",
-                display: { xs: "inherit", lg: "flex" },
+                display: { xs: "inherit", xl: "flex" },
             }}
         >
             <AppBar position="static" onMouseLeave={handleMouseLeave}>
@@ -87,7 +89,7 @@ const Navbar = () => {
                             <Box
                                 sx={{
                                     flexGrow: 1,
-                                    display: { xs: "flex", lg: "none" },
+                                    display: { xs: "flex", xl: "none" },
                                 }}
                             >
                                 <IconButton
@@ -115,7 +117,7 @@ const Navbar = () => {
                                     open={Boolean(anchorElNav)}
                                     onClose={handleCloseNavMenu}
                                     sx={{
-                                        display: { xs: "block", lg: "none" },
+                                        display: { xs: "block", xl: "none" },
                                     }}
                                 >
                                     {pages.map((page, index) => {
@@ -155,11 +157,12 @@ const Navbar = () => {
                                         navigateToTop();
                                     }}
                                     sx={{
-                                        display: { xs: "flex", lg: "none" },
+                                        display: { xs: "flex", xl: "none" },
                                         fontSize: "1.75rem",
                                         textAlign: "center",
                                         width: "100%",
                                         fontWeight: 700,
+                                        transition: "2000ms",
                                         color: theme.palette.custom.light,
                                     }}
                                 >
@@ -172,7 +175,7 @@ const Navbar = () => {
                     </Grid>
 
                     {/* desktop view */}
-                    <Box sx={{ display: { xs: "none", lg: "inherit" } }}>
+                    <Box sx={{ display: { xs: "none", xl: "inherit" } }}>
                         <Grid container>
                             <Grid item xs>
                                 <Box
@@ -190,7 +193,9 @@ const Navbar = () => {
                                         }}
                                         sx={{
                                             margin: "0 1em",
-                                            transition: "150ms",
+                                            transition: "300ms",
+                                            fontSize: titleFontSize,
+                                            textAlign: "center",
                                             color:
                                                 currentPage === ""
                                                     ? theme.palette.custom.light
@@ -230,7 +235,6 @@ const Navbar = () => {
                                                     onMouseEnter={
                                                         handleMouseEnter
                                                     }
-                                                    size="large"
                                                     sx={{
                                                         color:
                                                             currentPage ===
