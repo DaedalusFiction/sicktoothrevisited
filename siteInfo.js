@@ -494,6 +494,21 @@ const eventConfig = {
     ],
     timeUploaded: new Date(),
 };
+const contributorConfig = {
+    categories: [],
+    subCategories: [],
+    fields: [
+        { name: "Name", type: "text", value: "" },
+        {
+            name: "Description",
+            type: "text",
+            value: "",
+            multiline: true,
+            rows: 4,
+        },
+    ],
+    timeUploaded: new Date(),
+};
 
 const pages = [
     {
@@ -616,6 +631,7 @@ export {
     galleryStylesCategories,
     galleryConfig,
     eventConfig,
+    contributorConfig,
     heroContent,
     homeGalleryContent,
     blockTextOne,

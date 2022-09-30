@@ -24,40 +24,21 @@ const index = ({ fiction }) => {
 
 export const getStaticProps = async (context) => {
     const publicationsRef = collection(db, "publications");
-    const poetryQuery = query(
-        publicationsRef,
-        where("categories", "array-contains", "poetry")
-    );
     const fictionQuery = query(
         publicationsRef,
         where("categories", "array-contains", "fiction")
     );
-    const articlesQuery = query(
-        publicationsRef,
-        where("categories", "array-contains", "articles")
-    );
 
-    const poetrySnapshot = await getDocs(poetryQuery);
     const fictionSnapshot = await getDocs(fictionQuery);
-    const articlesSnapshot = await getDocs(articlesQuery);
-    let poems = [];
-    poetrySnapshot.docs.forEach((doc, index) => {
-        poems = [...poems, doc.data()];
-    });
+
     let fiction = [];
     fictionSnapshot.docs.forEach((doc, index) => {
         fiction = [...fiction, doc.data()];
     });
-    let articles = [];
-    articlesSnapshot.docs.forEach((doc, index) => {
-        articles = [...articles, doc.data()];
-    });
 
     return {
         props: {
-            poems,
             fiction,
-            articles,
         },
     };
 };
