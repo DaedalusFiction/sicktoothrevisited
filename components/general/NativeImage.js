@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const GalleryImage = ({ image, maxSize }) => {
+const GalleryImage = ({ image, maxSize, url, alt, blur }) => {
     const [ratio, setRatio] = useState(1 / 1); // default to 16:9
 
     return (
         <Image
-            src={image.url}
-            blurDataURL={image}
+            src={url ? url : image.url}
+            blurDataURL={blur ? blur : image}
             placeholder="blur"
             //has to be unoptimized to work with firebase storage, apparently
             unoptimized
@@ -19,7 +19,7 @@ const GalleryImage = ({ image, maxSize }) => {
                 setRatio(naturalWidth / naturalHeight)
             }
             objectFit="cover"
-            alt={image.alt}
+            alt={alt ? alt : image.alt}
         />
     );
 };

@@ -19,9 +19,10 @@ import { useRouter } from "next/router";
 const Navbar = () => {
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [expanded, setExpanded] = useState(false);
-    const [titleFontSize, setTitleFontSize] = useState("3.75rem");
+    const [titleFontSize, setTitleFontSize] = useState("2.75rem");
     const router = useRouter();
     const currentPage = router.pathname.split("/")[1];
+    const path = router.pathname.split("/");
 
     const [trigger, setTrigger] = useState(true);
 
@@ -162,7 +163,7 @@ const Navbar = () => {
                                         textAlign: "center",
                                         width: "100%",
                                         fontWeight: 700,
-                                        transition: "2000ms",
+                                        transition: "1000ms",
                                         color: theme.palette.custom.light,
                                     }}
                                 >
@@ -236,17 +237,16 @@ const Navbar = () => {
                                                         handleMouseEnter
                                                     }
                                                     sx={{
-                                                        color:
-                                                            currentPage ===
+                                                        color: path.includes(
                                                             page.name
                                                                 .split(" ")
                                                                 .join("")
-                                                                ? theme.palette
-                                                                      .custom
-                                                                      .light
-                                                                : theme.palette
-                                                                      .custom
-                                                                      .lightMuted,
+                                                        )
+                                                            ? theme.palette
+                                                                  .custom.light
+                                                            : theme.palette
+                                                                  .custom
+                                                                  .lightMuted,
                                                         "&:hover": {
                                                             color: theme.palette
                                                                 .custom.light,

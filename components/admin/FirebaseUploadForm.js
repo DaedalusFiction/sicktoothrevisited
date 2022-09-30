@@ -99,8 +99,6 @@ const FirebaseUploadForm = ({
             return;
         }
         var downloadURLs = [];
-        let textFile = null;
-        let textFileURL = "";
         let error = false;
 
         //check to see if image already exists in storage
@@ -120,6 +118,20 @@ const FirebaseUploadForm = ({
                 );
             })
         );
+        //check if markdown file with file name exists
+        const markdownStorageRef = ref(storage, folder);
+        const markdownTask = await getDownloadURL(markdownStorageRef).then(
+            (res) => {
+                //file already exists
+                console.log("exists");
+                error = true;
+            },
+            (res) => {
+                //file doesn't exist
+                console.log("doesn't exist");
+            }
+        );
+
         //check to see if document with selected Title already exists
         const checkTask = await getDoc(
             doc(db, folder, formData.fields[0].value)
@@ -133,7 +145,7 @@ const FirebaseUploadForm = ({
 
         if (error) {
             setFileError(
-                "Cannot upload. One of these files already exists in storage."
+                "Cannot upload. An image or text file with this name already exists in storage. Please rename the image and/or markdown file and try again."
             );
 
             return;
@@ -153,70 +165,83 @@ const FirebaseUploadForm = ({
                 "state_changed",
                 () => {},
                 () => {},
-                () => {
-                    // creates firestore database entry
-                    // setUploadProgress(0);
-                    getDownloadURL(uploadTextTask.snapshot.ref).then(
+                async () => {
+                    let textFileURL = "";
+                    await getDownloadURL(uploadTextTask.snapshot.ref).then(
                         (downloadURL) => {
                             textFileURL = downloadURL;
                         }
                     );
-                }
-            );
 
-            selectedImages.forEach(async (image) => {
-                const storageRef = ref(storage, `${folder}/${image.name}`);
+                    selectedImages.forEach(async (image) => {
+                        const storageRef = ref(
+                            storage,
+                            `${folder}/${image.name}`
+                        );
 
-                const uploadTask = uploadBytesResumable(storageRef, image);
+                        const uploadTask = uploadBytesResumable(
+                            storageRef,
+                            image
+                        );
 
-                uploadTask.on(
-                    "state_changed",
-                    (snapshot) => {
-                        //to show upload progress as percentage
-                        // const progress =
-                        //     (snapshot.bytesTransferred / snapshot.totalBytes) *
-                        //     100;
-                        // setUploadProgress(progress);
-                    },
-                    (error) => {
-                        // setUploadError(true);
-                        console.log(error.message);
-                    },
-                    () => {
-                        // creates firestore database entry
-                        // setUploadProgress(0);
-                        getDownloadURL(uploadTask.snapshot.ref).then(
-                            (downloadURL) => {
-                                downloadURLs = [...downloadURLs, downloadURL];
-                                if (
-                                    downloadURLs.length >= selectedImages.length
-                                ) {
-                                    setDoc(
-                                        doc(
-                                            db,
-                                            folder,
-                                            formData.fields[0].value
-                                        ),
-                                        {
-                                            ...formData,
-                                            id: formData.fields[0].value,
-                                            URLs: downloadURLs,
-                                            dateUploaded: Date.now(),
+                        uploadTask.on(
+                            "state_changed",
+                            (snapshot) => {
+                                //to show upload progress as percentage
+                                // const progress =
+                                //     (snapshot.bytesTransferred / snapshot.totalBytes) *
+                                //     100;
+                                // setUploadProgress(progress);
+                            },
+                            (error) => {
+                                // setUploadError(true);
+                                console.log(error.message);
+                            },
+                            () => {
+                                // creates firestore database entry
+                                // setUploadProgress(0);
+                                getDownloadURL(uploadTask.snapshot.ref).then(
+                                    (downloadURL) => {
+                                        downloadURLs = [
+                                            ...downloadURLs,
+                                            downloadURL,
+                                        ];
+                                        if (
+                                            downloadURLs.length >=
+                                            selectedImages.length
+                                        ) {
+                                            setDoc(
+                                                doc(
+                                                    db,
+                                                    folder,
+                                                    formData.fields[0].value
+                                                ),
+                                                {
+                                                    ...formData,
+                                                    id: formData.fields[0]
+                                                        .value,
+                                                    markdownURL: textFileURL,
+                                                    URLs: downloadURLs,
+                                                    dateUploaded: Date.now(),
+                                                }
+                                            );
                                         }
-                                    );
-                                }
 
-                                setFormData(JSON.parse(JSON.stringify(config)));
-                                setPreviews([]);
-                                setSelectedImages([]);
-                                setIsUploading(false);
-                                setUpdateCounter(updateCounter + 1);
-                                setFileError("");
+                                        setFormData(
+                                            JSON.parse(JSON.stringify(config))
+                                        );
+                                        setPreviews([]);
+                                        setSelectedImages([]);
+                                        setIsUploading(false);
+                                        setUpdateCounter(updateCounter + 1);
+                                        setFileError("");
+                                    }
+                                );
                             }
                         );
-                    }
-                );
-            });
+                    });
+                }
+            );
         }
     };
 

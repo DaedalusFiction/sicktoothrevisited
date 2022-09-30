@@ -11,7 +11,7 @@ const Meta = () => {
                 {router.pathname === "/" ? (
                     <title>{siteName}</title>
                 ) : (
-                    <title>{`${siteName} - ${basePath.toUpperCase()}`}</title>
+                    <title>{`${basePath.toUpperCase()} - ${siteName}`}</title>
                 )}
                 <meta
                     name="keywords"

@@ -370,6 +370,7 @@ const galleryConfig = {
             rows: 4,
         },
         { name: "Published", type: "number", value: "" },
+        { name: "Artist", type: "text", value: "" },
     ],
 };
 

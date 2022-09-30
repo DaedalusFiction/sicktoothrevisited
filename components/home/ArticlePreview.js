@@ -3,6 +3,8 @@ import Link from "next/link";
 import React from "react";
 
 const ArticlePreview = ({ article }) => {
+    const articleHref = "/publications/articles/" + article.fields[0].value;
+    const authorHref = "/contributors/" + article.fields[1].value;
     return (
         <Box>
             <Box
@@ -21,11 +23,10 @@ const ArticlePreview = ({ article }) => {
                 </Box>
                 <Typography
                     variant="h4"
+                    className="link"
                     sx={{ fontSize: "1.5rem", textTransform: "uppercase" }}
                 >
-                    <Link href="https://google.com">
-                        {article.fields[0].value}
-                    </Link>
+                    <Link href={articleHref}>{article.fields[0].value}</Link>
                 </Typography>
                 <Typography
                     variant="body2"
@@ -33,8 +34,8 @@ const ArticlePreview = ({ article }) => {
                 >
                     {article.fields[2].value}
                 </Typography>
-                <Typography variant="h6">
-                    By {article.fields[1].value}
+                <Typography className="link" variant="h6">
+                    <Link href={authorHref}>{article.fields[1].value}</Link>
                 </Typography>
             </Box>
             <Divider variant="inset" sx={{ margin: "1rem 0 1.5rem 0" }} />
