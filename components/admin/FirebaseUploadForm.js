@@ -221,6 +221,8 @@ const FirebaseUploadForm = ({
                                                     id: formData.fields[0]
                                                         .value,
                                                     markdownURL: textFileURL,
+                                                    markdownFileName:
+                                                        selectedTextFile.name,
                                                     URLs: downloadURLs,
                                                     dateUploaded: Date.now(),
                                                 }

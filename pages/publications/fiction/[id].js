@@ -6,6 +6,7 @@ import PageLayout from "../../../components/layout/PageLayout";
 import NativeImage from "../../../components/general/NativeImage";
 import { db } from "../../../firebase";
 import { Typography } from "@mui/material";
+import PublicationBody from "../../../components/publications/PublicationBody";
 
 const page = ({ story }) => {
     return (
@@ -55,6 +56,7 @@ const page = ({ story }) => {
                     >
                         {story.fields[1].value}
                     </Typography>
+                    <PublicationBody story={story} />
                 </Box>
             </Container>
         </Box>
