@@ -510,6 +510,37 @@ const contributorConfig = {
     timeUploaded: new Date(),
 };
 
+const textSubmissionsConfig = {
+    fields: [
+        { name: "Name", type: "text", value: "" },
+        { name: "Genre", type: "text", value: "" },
+        { name: "Previously Published", type: "text", value: "" },
+        {
+            name: "Comment",
+            type: "text",
+            value: "",
+            multiline: true,
+            rows: 4,
+        },
+    ],
+    timeUploaded: new Date(),
+};
+const imageSubmissionsConfig = {
+    fields: [
+        { name: "Name", type: "text", value: "" },
+        { name: "Genre", type: "text", value: "" },
+        { name: "Previously Published", type: "text", value: "" },
+        {
+            name: "Comment",
+            type: "text",
+            value: "",
+            multiline: true,
+            rows: 4,
+        },
+    ],
+    timeUploaded: new Date(),
+};
+
 const pages = [
     // {
     //     name: "issues",
@@ -635,6 +666,8 @@ export {
     galleryConfig,
     eventConfig,
     contributorConfig,
+    textSubmissionsConfig,
+    imageSubmissionsConfig,
     heroContent,
     homeGalleryContent,
     blockTextOne,
