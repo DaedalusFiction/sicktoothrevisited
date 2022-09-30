@@ -1,15 +1,47 @@
-import { Typography } from "@mui/material";
+import { Divider, Grid, Typography } from "@mui/material";
+import { Box, Container } from "@mui/system";
 import { collection, getDocs } from "firebase/firestore";
+import Link from "next/link";
 import React from "react";
 import PageLayout from "../../components/layout/PageLayout";
 import { db } from "../../firebase";
 
 const index = ({ contributors }) => {
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     return (
         <PageLayout name="Contributors">
-            {contributors.map((contributor, index) => {
-                return <Typography key={index}>{contributor.name}</Typography>;
-            })}
+            <Container className="section">
+                <Grid container spacing={4}>
+                    {alphabet.map((letter) => {
+                        return (
+                            <Grid key={letter} item xs={6} md={4}>
+                                <Typography variant="h2">{letter}</Typography>
+                                <Divider />
+                                {contributors.map((contributor, index) => {
+                                    return (
+                                        <Box key={index}>
+                                            {contributor.name.split("")[0] ===
+                                                letter && (
+                                                <Typography
+                                                    className="link"
+                                                    variant="h6"
+                                                    sx={{ margin: ".5em 0" }}
+                                                >
+                                                    <Link
+                                                        href={`/contributors/${contributor.name}`}
+                                                    >
+                                                        {contributor.name}
+                                                    </Link>
+                                                </Typography>
+                                            )}
+                                        </Box>
+                                    );
+                                })}
+                            </Grid>
+                        );
+                    })}
+                </Grid>
+            </Container>
         </PageLayout>
     );
 };

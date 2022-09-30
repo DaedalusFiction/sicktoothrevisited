@@ -14,7 +14,7 @@ import lightTheme from "./styles/themes/theme";
 
 // 1. Meta
 
-const siteName = "SICKTOOTH";
+const siteName = "LIT MAG";
 // const siteName = "Cosima Hewes";
 
 // 2. Layout
@@ -511,14 +511,14 @@ const contributorConfig = {
 };
 
 const pages = [
-    {
-        name: "issues",
-        href: "/issues",
-        subPages: [
-            { name: "Latest", href: "/issues/latest" },
-            { name: "Archive", href: "/issues/archive" },
-        ],
-    },
+    // {
+    //     name: "issues",
+    //     href: "/issues",
+    //     subPages: [
+    //         { name: "Latest", href: "/issues/latest" },
+    //         { name: "Archive", href: "/issues/archive" },
+    //     ],
+    // },
     {
         name: "fiction",
         href: "/publications/fiction",
@@ -537,15 +537,18 @@ const pages = [
     {
         name: "contributors",
         href: "/contributors",
-        subPages: [
-            { name: "Writers", href: "/contributors/writers" },
-            { name: "Artists", href: "/contributors/artists" },
-        ],
+        subPages: [],
     },
     {
         name: "about",
         href: "/about",
-        subPages: [],
+        subPages: [
+            { name: "Masthead", href: "/contributors/masthead" },
+            {
+                name: "Mission Statement",
+                href: "/contributors/missionstatement",
+            },
+        ],
     },
     { name: "submissions", href: "/submissions", subPages: [] },
 ];
