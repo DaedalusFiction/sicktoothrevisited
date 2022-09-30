@@ -37,6 +37,7 @@ const FirestoreListingItem = ({
         urls.forEach((url) => {
             deleteObject(ref(storage, url));
         });
+        deleteObject(ref(storage, image.data().markdownURL));
         await deleteDoc(doc(db, folder, image.id));
         setUpdateCounter(updateCounter + 1);
         setShownImages([]);
