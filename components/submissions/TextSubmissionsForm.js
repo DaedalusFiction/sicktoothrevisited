@@ -199,13 +199,15 @@ const TextSubmissionsForm = ({ config, folder }) => {
                 );
             })}
 
-            <ButtonWithConfirm
-                handleClick={handleUpload}
-                isDisabled={isUploading}
-                buttonText="Upload"
-                dialogText="Are you sure you want to submit this story??"
-                notificationText="File Uploading..."
-            />
+            <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <ButtonWithConfirm
+                    handleClick={handleUpload}
+                    isDisabled={isUploading}
+                    buttonText="Upload"
+                    dialogText="Are you sure you want to submit this story??"
+                    notificationText="File Uploading..."
+                />
+            </Box>
         </Box>
     );
 };

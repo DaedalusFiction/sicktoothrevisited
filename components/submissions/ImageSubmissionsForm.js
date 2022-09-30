@@ -174,14 +174,18 @@ const FirebaseUploadForm = ({ config, folder }) => {
                     Select Image
                 </Input>
                 <br />
-                <Typography variant="caption">
-                    .jpg and .png only. File size must be less than 3MB.
-                </Typography>
+                {selectedImages.length > 0 ? (
+                    <Typography variant="caption">
+                        {selectedImages[0].name}
+                    </Typography>
+                ) : (
+                    <Typography variant="caption">.jpg, .png</Typography>
+                )}
             </Box>
 
-            <Grid container spacing={1}>
-                {previews.length > 0 &&
-                    previews.map((preview, index) => {
+            {previews.length > 0 && (
+                <Grid container spacing={1}>
+                    {previews.map((preview, index) => {
                         return (
                             <Grid item xs={3} key={index}>
                                 <Box
@@ -214,7 +218,8 @@ const FirebaseUploadForm = ({ config, folder }) => {
                             </Grid>
                         );
                     })}
-            </Grid>
+                </Grid>
+            )}
 
             {formData.fields.map((field, index) => {
                 return (
@@ -234,14 +239,15 @@ const FirebaseUploadForm = ({ config, folder }) => {
                 );
             })}
 
-            <ButtonWithConfirm
-                handleClick={handleUpload}
-                isDisabled={isUploading}
-                buttonText="Upload"
-                dialogText="Are you sure you want to upload this item?"
-                notificationText="File Uploading..."
-            />
-            {fileError !== "false" && <Typography>{fileError}</Typography>}
+            <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <ButtonWithConfirm
+                    handleClick={handleUpload}
+                    isDisabled={isUploading}
+                    buttonText="Upload"
+                    dialogText="Are you sure you want to upload this item?"
+                    notificationText="File Uploading..."
+                />
+            </Box>
         </Box>
     );
 };
