@@ -2,9 +2,9 @@ import { Box, Divider, Typography } from "@mui/material";
 import Link from "next/link";
 import React from "react";
 
-const ArticlePreview = ({ article }) => {
-    const articleHref = "/publications/articles/" + article.fields[0].value;
-    const authorHref = "/contributors/" + article.fields[1].value;
+const ArticlePreview = ({ item, category }) => {
+    const itemHref = "/publications/" + category + "/" + item.fields[0].value;
+    const authorHref = "/contributors/" + item.fields[1].value;
     return (
         <Box>
             <Box
@@ -13,7 +13,7 @@ const ArticlePreview = ({ article }) => {
                 }}
             >
                 <Box sx={{ display: "flex", gap: ".25em" }}>
-                    {article.subCategories.map((subCategory, index) => {
+                    {item.subCategories.map((subCategory, index) => {
                         return (
                             <Typography key={index} variant="caption">
                                 [{subCategory}]
@@ -26,16 +26,16 @@ const ArticlePreview = ({ article }) => {
                     className="link"
                     sx={{ fontSize: "1.5rem", textTransform: "uppercase" }}
                 >
-                    <Link href={articleHref}>{article.fields[0].value}</Link>
+                    <Link href={itemHref}>{item.fields[0].value}</Link>
                 </Typography>
                 <Typography
                     variant="body2"
                     sx={{ margin: ".25rem 0", fontSize: "1rem" }}
                 >
-                    {article.fields[2].value}
+                    {item.fields[2].value}
                 </Typography>
                 <Typography className="link" variant="h6">
-                    <Link href={authorHref}>{article.fields[1].value}</Link>
+                    <Link href={authorHref}>{item.fields[1].value}</Link>
                 </Typography>
             </Box>
             <Divider variant="inset" sx={{ margin: "1rem 0 1.5rem 0" }} />

@@ -52,7 +52,11 @@ export default function Home({ poems, fiction, articles }) {
                     {articles &&
                         articles.map((article, index) => {
                             return (
-                                <ArticlePreview article={article} key={index} />
+                                <ArticlePreview
+                                    category="articles"
+                                    item={article}
+                                    key={index}
+                                />
                             );
                         })}
                 </Grid>
@@ -73,7 +77,7 @@ export const getStaticProps = async (context) => {
     );
     const articlesQuery = query(
         publicationsRef,
-        where("categories", "array-contains", "articles")
+        where("categories", "array-contains", "article")
     );
 
     const poetrySnapshot = await getDocs(poetryQuery);

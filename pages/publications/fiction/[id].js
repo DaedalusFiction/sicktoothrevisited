@@ -1,5 +1,14 @@
 import { Box, Container } from "@mui/system";
-import { doc, getDoc } from "firebase/firestore";
+import {
+    collection,
+    doc,
+    getDoc,
+    getDocs,
+    limit,
+    orderBy,
+    query,
+    where,
+} from "firebase/firestore";
 import Image from "next/image";
 import React, { useState } from "react";
 import PageLayout from "../../../components/layout/PageLayout";
@@ -8,7 +17,7 @@ import { db } from "../../../firebase";
 import { Typography } from "@mui/material";
 import PublicationBody from "../../../components/publications/PublicationBody";
 
-const page = ({ story }) => {
+const page = ({ articles, story }) => {
     return (
         <Box>
             <Container maxWidth="xl" disableGutters>
@@ -56,7 +65,11 @@ const page = ({ story }) => {
                     >
                         {story.fields[1].value}
                     </Typography>
-                    <PublicationBody story={story} />
+                    <PublicationBody
+                        sidebarCategory="fiction"
+                        sidebarItems={articles}
+                        story={story}
+                    />
                 </Box>
             </Container>
         </Box>
@@ -67,8 +80,24 @@ export const getServerSideProps = async (context) => {
     const docSnap = await getDoc(doc(db, `publications/${context.params.id}`));
     let story = docSnap.data();
 
+    const publicationsRef = collection(db, "publications");
+    const articlesQuery = query(
+        publicationsRef,
+        where("categories", "array-contains", "fiction"),
+        orderBy("dateUploaded", "desc"),
+        limit(3)
+    );
+
+    const articlesSnapshot = await getDocs(articlesQuery);
+
+    let articles = [];
+    articlesSnapshot.docs.forEach((doc, index) => {
+        articles = [...articles, doc.data()];
+    });
+
     return {
         props: {
+            articles,
             story,
         },
     };
