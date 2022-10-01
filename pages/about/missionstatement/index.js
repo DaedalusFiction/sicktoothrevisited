@@ -11,7 +11,7 @@ import AboutNavbar from "../../../components/about/AboutNavbar";
 
 const index = () => {
     return (
-        <PageLayout name="STUDIO">
+        <PageLayout name="MISSION STATEMENT">
             <AboutNavbar />
             <Box className="section">
                 <Grid container spacing={6}>

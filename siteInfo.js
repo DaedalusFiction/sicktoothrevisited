@@ -14,7 +14,7 @@ import lightTheme from "./styles/themes/theme";
 
 // 1. Meta
 
-const siteName = "LIT MAG";
+const siteName = "MAGAZINE";
 // const siteName = "Cosima Hewes";
 
 // 2. Layout
@@ -376,7 +376,26 @@ const galleryConfig = {
 
 // 7. About
 
-// 7a. Artists
+// 7a. About
+
+const aboutContent = {
+    image: { url: "/images/placeholder.webp", alt: "alt placeholder text" },
+    name: "About Us",
+    buttons: [
+        {
+            text: "Button Text",
+            href: "/about/masthead",
+            variant: "contained",
+        },
+        {
+            text: "Button Text",
+            href: "/about/missionstatement",
+            variant: "contained",
+        },
+    ],
+    content:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit.\n\nQuibusdam eaque nihil ipsum molestias ab quod aliquid consectetur rerum facilis ratione dignissimos fugiat, enim doloribus assumenda. Laboriosam voluptatem laudantium sequi iste nihil cupiditate sed, corporis eum natus excepturi, inventore nulla unde! Veritatis nihil culpa neque.\n\nDolore ipsa sed asperiores voluptatibus nam modi. Dolorem hic incidunt quae tenetur quaerat animi, unde aspernatur.\n\nLorem ipsum, dolor sit amet consectetur adipisicing elit.\n\nQuibusdam eaque nihil ipsum molestias ab quod aliquid consectetur rerum facilis ratione dignissimos fugiat, enim doloribus assumenda. Laboriosam voluptatem laudantium sequi iste nihil cupiditate sed, corporis eum natus excepturi, inventore nulla unde! Veritatis nihil culpa neque.\n\nDolore ipsa sed asperiores voluptatibus nam modi. Dolorem hic incidunt quae tenetur quaerat animi, unde aspernatur.",
+};
 
 const leadProfile = {
     image: { url: "/images/placeholder.webp", alt: "alt placeholder text" },
@@ -415,7 +434,7 @@ const studioContent = {
         url: "/images/placeholder.webp",
         alt: "alt placeholder text",
     },
-    header: "Studio Header",
+    header: "This is what we believe",
     content:
         "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam eaque nihil ipsum molestias ab quod aliquid consectetur rerum facilis ratione dignissimos fugiat, enim doloribus assumenda.\n\nLaboriosam voluptatem laudantium sequi iste nihil cupiditate sed, corporis eum natus excepturi, inventore nulla unde! Veritatis nihil culpa neque. Dolore ipsa sed asperiores voluptatibus nam modi. Dolorem hic incidunt quae tenetur quaerat animi, unde aspernatur.",
 };
@@ -574,10 +593,10 @@ const pages = [
         name: "about",
         href: "/about",
         subPages: [
-            { name: "Masthead", href: "/contributors/masthead" },
+            { name: "Masthead", href: "/about/masthead" },
             {
                 name: "Mission Statement",
-                href: "/contributors/missionstatement",
+                href: "/about/missionstatement",
             },
         ],
     },
@@ -680,6 +699,7 @@ export {
     mosaicSectionContentTwo,
     mosaicSectionContentThree,
     servicesContent,
+    aboutContent,
     leadProfile,
     secondaryProfiles,
     studioContent,

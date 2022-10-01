@@ -42,6 +42,9 @@ const FirebaseUploadForm = ({
 
     const handleImagesChange = (e) => {
         setFileError("false");
+        if (e.target.files.length === 0) {
+            return;
+        }
         if (e.target.files[0].size > 1097152) {
             setFileError("File size must be less than 1MB");
             return;
@@ -65,7 +68,10 @@ const FirebaseUploadForm = ({
     };
 
     const handleTextFileChange = (e) => {
-        console.log(e.target.files[0].type);
+        if (e.target.files.length === 0) {
+            setSelectedTextFile(null);
+            return;
+        }
         if (e.target.files[0].size > 1097152) {
             setFileError("File size must be less than 1MB");
             return;
@@ -81,7 +87,12 @@ const FirebaseUploadForm = ({
     };
 
     const handleRemoveSelectedImage = (index) => {
-        const newSelectedImages = selectedImages.splice(index, 1);
+        console.log("index", index);
+        const newSelectedImages = selectedImages.filter(
+            (myPreview, myIndex) => myIndex !== index
+        );
+        // const newSelectedImages = selectedImages.splice(index, 1);
+        console.log(newSelectedImages);
         setSelectedImages(newSelectedImages);
     };
 
@@ -237,6 +248,7 @@ const FirebaseUploadForm = ({
                                         setIsUploading(false);
                                         setUpdateCounter(updateCounter + 1);
                                         setFileError("");
+                                        setSelectedTextFile(null);
                                     }
                                 );
                             }

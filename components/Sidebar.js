@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 const Sidebar = ({ side, light }) => {
     const router = useRouter();
     const path = router.pathname;
-    console.log(path);
     return (
         <Box
             sx={{

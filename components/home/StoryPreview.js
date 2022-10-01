@@ -35,7 +35,7 @@ const StoryPreview = ({ story }) => {
                     margin: ".5rem 0",
                 }}
             >
-                <Box sx={{ display: "flex", gap: ".25em" }}>
+                <Box sx={{ display: "flex", gap: ".25em", flexWrap: "wrap" }}>
                     {story.subCategories.map((subCategory, index) => {
                         return (
                             <Typography key={index} variant="caption">

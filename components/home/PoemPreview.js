@@ -32,7 +32,7 @@ const PoemPreview = ({ poem }) => {
                     margin: ".5rem 0",
                 }}
             >
-                <Box sx={{ display: "flex", gap: ".25em" }}>
+                <Box sx={{ display: "flex", gap: ".25em", flexWrap: "wrap" }}>
                     {poem.subCategories.map((subCategory, index) => {
                         return (
                             <Typography key={index} variant="caption">

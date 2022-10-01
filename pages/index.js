@@ -2,7 +2,14 @@ import { Box, Divider, Typography } from "@mui/material";
 import { Grid } from "@mui/material";
 import { Container } from "@mui/system";
 
-import { collection, getDocs, query, where } from "firebase/firestore";
+import {
+    collection,
+    getDocs,
+    limit,
+    orderBy,
+    query,
+    where,
+} from "firebase/firestore";
 import PoemPreview from "../components/home/PoemPreview";
 import StoryPreview from "../components/home/StoryPreview";
 import ArticlePreview from "../components/home/ArticlePreview";
@@ -69,15 +76,23 @@ export const getStaticProps = async (context) => {
     const publicationsRef = collection(db, "publications");
     const poetryQuery = query(
         publicationsRef,
-        where("categories", "array-contains", "poetry")
+        where("categories", "array-contains", "poetry"),
+        orderBy("dateUploaded", "desc"),
+        limit(5)
     );
     const fictionQuery = query(
         publicationsRef,
-        where("categories", "array-contains", "fiction")
+        where("categories", "array-contains", "fiction"),
+
+        orderBy("dateUploaded", "desc"),
+        limit(3)
     );
     const articlesQuery = query(
         publicationsRef,
-        where("categories", "array-contains", "article")
+        where("categories", "array-contains", "article"),
+
+        orderBy("dateUploaded", "desc"),
+        limit(7)
     );
 
     const poetrySnapshot = await getDocs(poetryQuery);

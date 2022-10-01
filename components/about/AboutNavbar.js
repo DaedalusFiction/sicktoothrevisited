@@ -6,25 +6,24 @@ const AboutNavbar = () => {
     return (
         <Box
             sx={{
-                margin: "2em 0",
+                marginTop: "2em",
                 display: "flex",
                 justifyContent: "center",
                 gap: "1em",
             }}
         >
             {/* pages[2] returns About subpages from /siteinfo */}
-            {pages[2].subPages.map((subPage, index) => {
+            {pages[4].subPages.map((subPage, index) => {
                 return (
-                    <Button key={index}>
-                        <Link
-                            style={{
-                                textDecoration: "none",
-                            }}
-                            href={subPage.href}
-                        >
-                            {subPage.name}
-                        </Link>
-                    </Button>
+                    <Link
+                        key={index}
+                        style={{
+                            textDecoration: "none",
+                        }}
+                        href={subPage.href}
+                    >
+                        <Button>{subPage.name}</Button>
+                    </Link>
                 );
             })}
         </Box>
