@@ -1,18 +1,6 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { Container } from "@mui/system";
-import ContactForm from "../../components/contact/ContactForm";
 import PageLayout from "../../components/layout/PageLayout";
-
-const contactConfig = [
-    { name: "Name", type: "text", value: "" },
-    { name: "Email", type: "text", value: "" },
-    {
-        name: "Interest",
-        type: "dropdown",
-        options: ["Service One", "Service Two", "Service Three"],
-        value: "",
-    },
-];
 
 const index = () => {
     return (
@@ -31,7 +19,7 @@ const index = () => {
                         </Typography>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <ContactForm config={contactConfig} />
+                        {/* <ContactForm config={contactConfig} /> */}
                     </Grid>
                 </Grid>
             </Container>
