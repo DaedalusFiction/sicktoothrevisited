@@ -16,7 +16,7 @@ const index = ({ articles }) => {
                     {articles.length > 0 &&
                         articles.map((article, index) => {
                             return (
-                                <Grid key={index} item xs={3}>
+                                <Grid key={index} item xs={12} md={3}>
                                     <ArticlePreview item={article} />
                                 </Grid>
                             );
