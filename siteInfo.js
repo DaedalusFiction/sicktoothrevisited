@@ -14,7 +14,7 @@ import lightTheme from "./styles/themes/theme";
 
 // 1. Meta
 
-const siteName = "MAGAZINE";
+const siteName = "SICKTOOTH";
 // const siteName = "Cosima Hewes";
 
 // 2. Layout
