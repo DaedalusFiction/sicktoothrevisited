@@ -1,12 +1,43 @@
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Divider, Fade, Typography } from "@mui/material";
+import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
-const ArticlePreview = ({ item, category }) => {
+const ArticlePreview = ({ item, category, hideImage }) => {
+    const [ratio, setRatio] = useState(1 / 1); // default to 16:9
+    const [isLoaded, setIsLoaded] = useState(false);
+    const handleLoaded = (naturalWidth, naturalHeight) => {
+        setRatio(naturalWidth / naturalHeight);
+        setIsLoaded(true);
+    };
     const itemHref = "/publications/" + category + "/" + item.fields[0].value;
     const authorHref = "/contributors/" + item.fields[1].value;
     return (
         <Box>
+            {!hideImage && (
+                <Link href={itemHref}>
+                    <Fade in={isLoaded}>
+                        <div>
+                            <Image
+                                className="link link-image"
+                                src={item.URLs[0]}
+                                blurDataURL={item}
+                                placeholder="blur"
+                                //has to be unoptimized to work with firebase storage, apparently
+                                unoptimized
+                                width="100"
+                                height={100 / ratio}
+                                onLoadingComplete={({
+                                    naturalWidth,
+                                    naturalHeight,
+                                }) => handleLoaded(naturalWidth, naturalHeight)}
+                                layout="responsive"
+                                alt={item.description}
+                            />
+                        </div>
+                    </Fade>
+                </Link>
+            )}
             <Box
                 sx={{
                     margin: ".5rem 0",

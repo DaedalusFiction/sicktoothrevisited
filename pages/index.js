@@ -60,6 +60,7 @@ export default function Home({ poems, fiction, articles }) {
                         articles.map((article, index) => {
                             return (
                                 <ArticlePreview
+                                    hideImage
                                     category="articles"
                                     item={article}
                                     key={index}

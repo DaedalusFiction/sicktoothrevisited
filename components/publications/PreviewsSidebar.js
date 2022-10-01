@@ -12,6 +12,7 @@ const PreviewsSidebar = ({ sidebarItems, sidebarCategory }) => {
                 sidebarItems.map((item, index) => {
                     return (
                         <ArticlePreview
+                            hideImage
                             category={sidebarCategory}
                             item={item}
                             key={index}
