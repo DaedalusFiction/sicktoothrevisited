@@ -374,6 +374,12 @@ const galleryConfig = {
     ],
 };
 
+const subscribeConfig = {
+    website: "magazine-template",
+    category: "contact",
+    fields: [{ name: "Name", type: "text", value: "" }],
+};
+
 // 7. About
 
 // 7a. About
@@ -684,6 +690,7 @@ export {
     galleryStylesCategories,
     galleryConfig,
     eventConfig,
+    subscribeConfig,
     contributorConfig,
     textSubmissionsConfig,
     imageSubmissionsConfig,

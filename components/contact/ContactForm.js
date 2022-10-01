@@ -12,31 +12,9 @@ import ContactFormField from "./ContactFormField";
 
 import emailjs from "@emailjs/browser";
 
-const contactConfig = {
-    website: "designer-template",
-    category: "contact",
-    fields: [
-        { name: "Name", type: "text", value: "" },
-
-        {
-            name: "Comment",
-            type: "text",
-            value: "",
-            multiline: true,
-            rows: 4,
-        },
-        {
-            name: "Service",
-            type: "dropdown",
-            options: ["Service One", "Service Two", "Service Three"],
-            value: "",
-        },
-    ],
-};
-
-const ContactForm = () => {
+const ContactForm = ({ config }) => {
     const [formData, setFormData] = useState(
-        JSON.parse(JSON.stringify(contactConfig))
+        JSON.parse(JSON.stringify(config))
     );
     const [isSubmitted, setIsSubmitted] = useState(false);
 
