@@ -3,7 +3,7 @@ import { Container } from "@mui/system";
 import ContactForm from "../../components/contact/ContactForm";
 import PageLayout from "../../components/layout/PageLayout";
 
-const formData = [
+const contactConfig = [
     { name: "Name", type: "text", value: "" },
     { name: "Email", type: "text", value: "" },
     {
@@ -31,7 +31,7 @@ const index = () => {
                         </Typography>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <ContactForm />
+                        <ContactForm config={contactConfig} />
                     </Grid>
                 </Grid>
             </Container>
