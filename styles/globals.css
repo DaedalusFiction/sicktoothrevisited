@@ -117,3 +117,7 @@ a {
     position: sticky;
     top: 8rem;
 }
+
+.storyBody p {
+    margin: 0;
+}
