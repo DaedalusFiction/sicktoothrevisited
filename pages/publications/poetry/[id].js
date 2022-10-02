@@ -33,7 +33,7 @@ const page = ({ articles, poem }) => {
             <Container>
                 <Box sx={{ display: "flex", justifyContent: "end" }}>
                     <Typography variant="caption">
-                        Image by {story.fields[4].value}
+                        Image by {poem.fields[4].value}
                     </Typography>
                 </Box>
                 <Box sx={{ padding: "3rem 0" }}>

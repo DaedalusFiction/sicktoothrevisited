@@ -31,7 +31,7 @@ const PublicationBody = ({ sidebarItems, story, sidebarCategory }) => {
     return (
         <Grid container className="section" spacing={8}>
             <Grid item xs={12} md={8}>
-                <div id="storyBody"></div>
+                <div style={{ whiteSpace: "pre-wrap" }} id="storyBody"></div>
                 <Typography
                     sx={{
                         marginTop: "3em",
