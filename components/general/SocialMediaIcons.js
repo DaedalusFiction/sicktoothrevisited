@@ -4,27 +4,36 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import Link from "next/link";
 import theme from "../../styles/themes/theme";
-const SocialMediaIcons = ({ fontSize }) => {
+const SocialMediaIcons = ({ fontSize, color }) => {
     return (
         <Stack direction="row" spacing={1}>
             <Tooltip title="twitter">
                 <Link href="https://instagram.com">
                     <IconButton>
-                        <InstagramIcon sx={{ fontSize: fontSize }} />
+                        <InstagramIcon
+                            color={color}
+                            sx={{ fontSize: fontSize }}
+                        />
                     </IconButton>
                 </Link>
             </Tooltip>
             <Tooltip title="twitter">
                 <Link href="https://instagram.com">
                     <IconButton>
-                        <FacebookIcon sx={{ fontSize: fontSize }} />
+                        <FacebookIcon
+                            color={color}
+                            sx={{ fontSize: fontSize }}
+                        />
                     </IconButton>
                 </Link>
             </Tooltip>
             <Tooltip title="twitter">
                 <Link href="https://instagram.com">
                     <IconButton>
-                        <TwitterIcon sx={{ fontSize: fontSize }} />
+                        <TwitterIcon
+                            color={color}
+                            sx={{ fontSize: fontSize }}
+                        />
                     </IconButton>
                 </Link>
             </Tooltip>

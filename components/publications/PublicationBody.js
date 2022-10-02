@@ -32,7 +32,13 @@ const PublicationBody = ({ sidebarItems, story, sidebarCategory }) => {
         <Grid container className="section" spacing={8}>
             <Grid item xs={12} md={8}>
                 <div id="storyBody"></div>
-                <Typography sx={{ marginTop: "3em", fontStyle: "italic" }}>
+                <Typography
+                    sx={{
+                        marginTop: "3em",
+                        fontStyle: "italic",
+                        textAlign: "end",
+                    }}
+                >
                     Published{" "}
                     {new Date(story.dateUploaded).toLocaleDateString("en-us", {
                         year: "numeric",

@@ -152,7 +152,6 @@ const TextSubmissionsForm = ({ config, folder }) => {
             <Box>
                 <Button
                     variant="outlined"
-                    color="secondary"
                     onClick={() => {
                         textFileInputRef.current.children[0].click();
                     }}

@@ -271,7 +271,10 @@ const Navbar = () => {
                                         height: "100%",
                                     }}
                                 >
-                                    <SocialMediaIcons fontSize="20px" />
+                                    <SocialMediaIcons
+                                        color="secondary"
+                                        fontSize="20px"
+                                    />
                                     <Link href={navbar.buttonOne.href}>
                                         <Button
                                             color="secondary"

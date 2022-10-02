@@ -20,14 +20,12 @@ const Footer = () => {
         <Container maxWidth="xl">
             <Grid container sx={{ padding: "1rem 0" }}>
                 <Grid item xs={6}>
-                    <SocialMediaIcons color="secondary" fontSize="25px" />
+                    <SocialMediaIcons color="primary" fontSize="25px" />
                 </Grid>
                 <Grid item xs={6}>
                     <Box sx={{ display: "flex", justifyContent: "end" }}>
                         <Link href="/contact">
-                            <Button color="secondary" variant="outlined">
-                                contact
-                            </Button>
+                            <Button variant="outlined">contact</Button>
                         </Link>
                     </Box>
                 </Grid>

@@ -6,10 +6,13 @@ let theme = createTheme({
         primary: {
             // main: "#3B3B58",
             main: "#484041",
+            // off: "#04A777",
             off: "#FBFFF1",
         },
         secondary: {
-            main: "#DC965A",
+            main: "#CBEAA6",
+            // main: "#04A777",
+            // main: "#DC965A",
         },
         background: {
             // default: "#fefefe",

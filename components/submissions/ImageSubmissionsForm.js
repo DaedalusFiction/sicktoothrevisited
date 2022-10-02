@@ -155,7 +155,6 @@ const FirebaseUploadForm = ({ config, folder }) => {
             <Box>
                 <Button
                     variant="outlined"
-                    color="secondary"
                     onClick={() => {
                         fileInputRef.current.children[0].click();
                         // fileInputRef.current.click();
@@ -206,7 +205,6 @@ const FirebaseUploadForm = ({ config, folder }) => {
                                     />
                                     <Button
                                         variant="outlined"
-                                        color="secondary"
                                         onClick={() => {
                                             handleRemovePreview(preview);
                                             handleRemoveSelectedImage(index);
