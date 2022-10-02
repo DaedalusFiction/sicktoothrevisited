@@ -21,6 +21,9 @@ const index = () => {
                             width="100%"
                             image={studioContent.imageOne}
                         />
+                        <Typography variant="caption">
+                            {studioContent.imageOne.alt}
+                        </Typography>
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Typography variant="h3">
@@ -31,25 +34,6 @@ const index = () => {
                             {studioContent.content}
                         </Typography>
                     </Grid>
-                    {/* {secondaryProfiles.map((profile, index) => {
-            return (
-              <Grid item key={index} xs={12} md={4}>
-                <Box sx={{ marginTop: "4rem" }}>
-                  <SizedImage
-                    image={profile.image}
-                    height="25rem"
-                    width="100%"
-                  />
-                  <br />
-                  <Typography variant="h4">{profile.name}</Typography>
-                  <br />
-                  <Typography sx={{ whiteSpace: "pre-wrap" }}>
-                    {profile.content}
-                  </Typography>
-                </Box>
-              </Grid>
-            );
-          })} */}
                 </Grid>
             </Box>
         </PageLayout>

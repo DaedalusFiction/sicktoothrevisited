@@ -385,8 +385,11 @@ const subscribeConfig = {
 // 7a. About
 
 const aboutContent = {
-    image: { url: "/images/placeholder.webp", alt: "alt placeholder text" },
-    name: "About Us",
+    image: {
+        url: "/images/about1.webp",
+        alt: "Moses Striking the Rock, by Joachim Anthonisz Wetwael",
+    },
+    name: "OUR ROOTS",
     buttons: [
         {
             text: "Button Text",
@@ -400,14 +403,17 @@ const aboutContent = {
         },
     ],
     content:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit.\n\nQuibusdam eaque nihil ipsum molestias ab quod aliquid consectetur rerum facilis ratione dignissimos fugiat, enim doloribus assumenda. Laboriosam voluptatem laudantium sequi iste nihil cupiditate sed, corporis eum natus excepturi, inventore nulla unde! Veritatis nihil culpa neque.\n\nDolore ipsa sed asperiores voluptatibus nam modi. Dolorem hic incidunt quae tenetur quaerat animi, unde aspernatur.\n\nLorem ipsum, dolor sit amet consectetur adipisicing elit.\n\nQuibusdam eaque nihil ipsum molestias ab quod aliquid consectetur rerum facilis ratione dignissimos fugiat, enim doloribus assumenda. Laboriosam voluptatem laudantium sequi iste nihil cupiditate sed, corporis eum natus excepturi, inventore nulla unde! Veritatis nihil culpa neque.\n\nDolore ipsa sed asperiores voluptatibus nam modi. Dolorem hic incidunt quae tenetur quaerat animi, unde aspernatur.",
+        "SICKTOOTH was founded in 2022 by failed novelist David Sorensen, who decided that he could do more good in this world by creating a platform on which to publish other writers than he ever could by simply writing things himself. \n\nPublishing fiction, poetry, creative non-fiction, and art, SICKTOOTH strives to publish the best content we can find, particulary that by previously unpublished artists and writers. \n\nThe name SICKTOOTH doesn't really have any particular significance; we just thought it sounded cool. Oh, and on that point, we think semicolons are just fine (when used in moderation).",
 };
 
 const leadProfile = {
-    image: { url: "/images/placeholder.webp", alt: "alt placeholder text" },
-    name: "Artist Name",
+    image: {
+        url: "/images/profile1.webp",
+        alt: "Self-Portrait, by Henri Fantin-Latour",
+    },
+    name: "David Sorensen",
     content:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit.\n\nQuibusdam eaque nihil ipsum molestias ab quod aliquid consectetur rerum facilis ratione dignissimos fugiat, enim doloribus assumenda. Laboriosam voluptatem laudantium sequi iste nihil cupiditate sed, corporis eum natus excepturi, inventore nulla unde! Veritatis nihil culpa neque.\n\nDolore ipsa sed asperiores voluptatibus nam modi. Dolorem hic incidunt quae tenetur quaerat animi, unde aspernatur.\n\nLorem ipsum, dolor sit amet consectetur adipisicing elit.\n\nQuibusdam eaque nihil ipsum molestias ab quod aliquid consectetur rerum facilis ratione dignissimos fugiat, enim doloribus assumenda. Laboriosam voluptatem laudantium sequi iste nihil cupiditate sed, corporis eum natus excepturi, inventore nulla unde! Veritatis nihil culpa neque.\n\nDolore ipsa sed asperiores voluptatibus nam modi. Dolorem hic incidunt quae tenetur quaerat animi, unde aspernatur.",
+        "David Sorensen is a writer, musician, and web developer living in central Virginia. His stories have appeared in a number of literary magazines, including New Reader Magazine, The Squawk Back, Infinite Rust, and, depending on how gullible you are, Harper's and The New Yorker. His upcoming novel, Unconventional Desire, will probably never actually be released or even finished. \n\nFor anyone who is interested, David's favorite writers include David Foster Wallace, Dave Eggers, Douglas Coupland, Kurt Vonnegut, Thomas Mann, T.S. Eliot, and Albert Camus. He also likes trashy memoirs, by anyone.",
 };
 
 const secondaryProfiles = [
@@ -434,7 +440,10 @@ const secondaryProfiles = [
 // 7b. Studio
 
 const studioContent = {
-    imageOne: { url: "/images/placeholder.webp", alt: "alt placeholder text" },
+    imageOne: {
+        url: "/images/missionStatement.webp",
+        alt: "Venus Adorned by the Graces, by Annibale Carracci",
+    },
     imageTwo: { url: "/images/placeholder.webp", alt: "alt placeholder text" },
     imageThree: {
         url: "/images/placeholder.webp",
@@ -442,7 +451,7 @@ const studioContent = {
     },
     header: "This is what we believe",
     content:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam eaque nihil ipsum molestias ab quod aliquid consectetur rerum facilis ratione dignissimos fugiat, enim doloribus assumenda.\n\nLaboriosam voluptatem laudantium sequi iste nihil cupiditate sed, corporis eum natus excepturi, inventore nulla unde! Veritatis nihil culpa neque. Dolore ipsa sed asperiores voluptatibus nam modi. Dolorem hic incidunt quae tenetur quaerat animi, unde aspernatur.",
+        "Literature can be a lot of things, but in terms of what it should be, we believe that there is only one: entertaining. Your time is valuable, and there is an incredible amount of literature out there, so to create something entertaining is in that sense a sign of courtesy and respect. We respect you, reader, and we are grateful for your decision to read SICKTOOTH, and to honor that we will do our best to keep you interested. \n\nLiterature as art, though, has a few additional responsibilities. These of course will change, and should change, but as far as SICKTOOTH is concerned, we aim to publish poetry, fiction, creative non-fiction, and art that connects people to one another as well as furthers people's knowledge of themselves. After all, what is a story but a chance to walk in someone else's shoes, and what is a poem but a fresh perspective on the familiar? \n\nAnd beyond all this, we want to support artists and writers. The future of SICKTOOTH depends on them, as does that of the human race.",
 };
 
 // 7c. Work

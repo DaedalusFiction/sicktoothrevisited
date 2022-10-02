@@ -11,12 +11,15 @@ const index = () => {
             <AboutNavbar />
             <Box className="section">
                 <Grid container spacing={6}>
-                    {/* <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={6}>
                         <SizedImage
                             height="30rem"
                             width="100%"
                             image={leadProfile.image}
                         />
+                        <Typography variant="caption">
+                            {leadProfile.image.alt}
+                        </Typography>
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Typography variant="h3">{leadProfile.name}</Typography>
@@ -24,8 +27,8 @@ const index = () => {
                         <Typography sx={{ whiteSpace: "pre-wrap" }}>
                             {leadProfile.content}
                         </Typography>
-                    </Grid> */}
-                    {secondaryProfiles.map((profile, index) => {
+                    </Grid>
+                    {/* {secondaryProfiles.map((profile, index) => {
                         return (
                             <Grid item key={index} xs={12} md={4}>
                                 <Box sx={{ marginTop: "4rem" }}>
@@ -45,7 +48,7 @@ const index = () => {
                                 </Box>
                             </Grid>
                         );
-                    })}
+                    })} */}
                 </Grid>
             </Box>
         </PageLayout>

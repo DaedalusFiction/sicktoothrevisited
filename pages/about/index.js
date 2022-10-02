@@ -17,6 +17,9 @@ const index = () => {
                             width="100%"
                             image={aboutContent.image}
                         />
+                        <Typography variant="caption">
+                            {aboutContent.image.alt}
+                        </Typography>
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Typography variant="h3">
@@ -26,7 +29,7 @@ const index = () => {
                         <Typography sx={{ whiteSpace: "pre-wrap" }}>
                             {aboutContent.content}
                         </Typography>
-                        <Box
+                        {/* <Box
                             sx={{
                                 display: "flex",
                                 gap: "1em",
@@ -45,7 +48,7 @@ const index = () => {
                                     </Link>
                                 );
                             })}
-                        </Box>
+                        </Box> */}
                     </Grid>
                 </Grid>
             </Box>

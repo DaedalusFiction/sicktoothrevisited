@@ -87,12 +87,9 @@ const FirebaseUploadForm = ({
     };
 
     const handleRemoveSelectedImage = (index) => {
-        console.log("index", index);
         const newSelectedImages = selectedImages.filter(
             (myPreview, myIndex) => myIndex !== index
         );
-        // const newSelectedImages = selectedImages.splice(index, 1);
-        console.log(newSelectedImages);
         setSelectedImages(newSelectedImages);
     };
 
