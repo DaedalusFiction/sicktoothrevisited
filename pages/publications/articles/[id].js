@@ -17,23 +17,23 @@ import { db } from "../../../firebase";
 import { Typography } from "@mui/material";
 import PublicationBody from "../../../components/publications/PublicationBody";
 
-const page = ({ articles, article }) => {
+const page = ({ articles, story }) => {
     return (
         <Box>
             <Container maxWidth="xl" disableGutters>
                 <Box>
                     <NativeImage
                         maxSize={3000}
-                        url={article.URLs[0]}
+                        url={story.URLs[0]}
                         alt="Roses"
-                        blur={article.URLs[0]}
+                        blur={story.URLs[0]}
                     />
                 </Box>
             </Container>
             <Container>
                 <Box sx={{ display: "flex", justifyContent: "end" }}>
                     <Typography variant="caption">
-                        Image by {article.fields[4].value}
+                        Image by {story.fields[4].value}
                     </Typography>
                 </Box>
                 <Box sx={{ padding: "3rem 0" }}>
@@ -44,7 +44,7 @@ const page = ({ articles, article }) => {
                             justifyContent: "center",
                         }}
                     >
-                        {article.subCategories.map((subCategory, index) => {
+                        {story.subCategories.map((subCategory, index) => {
                             return (
                                 <Typography key={index} variant="caption">
                                     [{subCategory}]
@@ -56,19 +56,19 @@ const page = ({ articles, article }) => {
                         sx={{ textAlign: "center", margin: ".25em 0" }}
                         variant="h1"
                     >
-                        {article.fields[0].value}
+                        {story.fields[0].value}
                     </Typography>
                     <Typography sx={{ textAlign: "center" }}>by</Typography>
                     <Typography
                         sx={{ textAlign: "center", margin: ".5em 0" }}
                         variant="h4"
                     >
-                        {article.fields[1].value}
+                        {story.fields[1].value}
                     </Typography>
                     <PublicationBody
-                        sidebarCategory="articles"
+                        sidebarCategory="fiction"
                         sidebarItems={articles}
-                        story={article}
+                        story={story}
                     />
                 </Box>
             </Container>
@@ -78,7 +78,7 @@ const page = ({ articles, article }) => {
 
 export const getServerSideProps = async (context) => {
     const docSnap = await getDoc(doc(db, `publications/${context.params.id}`));
-    let article = docSnap.data();
+    let story = docSnap.data();
 
     const publicationsRef = collection(db, "publications");
     const articlesQuery = query(
@@ -98,7 +98,7 @@ export const getServerSideProps = async (context) => {
     return {
         props: {
             articles,
-            article,
+            story,
         },
     };
 };
