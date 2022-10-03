@@ -379,6 +379,15 @@ const subscribeConfig = {
     category: "contact",
     fields: [{ name: "Email", type: "text", value: "" }],
 };
+const contactConfig = {
+    website: "SICKTOOTH",
+    category: "contact",
+    fields: [
+        { name: "Name", type: "text", value: "" },
+        { name: "Email", type: "text", value: "" },
+        { name: "Comment", type: "text", value: "", multiline: true, rows: 4 },
+    ],
+};
 
 // 7. About
 
@@ -703,6 +712,7 @@ export {
     contributorConfig,
     textSubmissionsConfig,
     imageSubmissionsConfig,
+    contactConfig,
     heroContent,
     homeGalleryContent,
     blockTextOne,

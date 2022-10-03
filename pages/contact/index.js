@@ -1,6 +1,8 @@
 import { Grid, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import PageLayout from "../../components/layout/PageLayout";
+import ContactForm from "../../components/contact/ContactForm";
+import { contactConfig } from "../../siteInfo";
 
 const index = () => {
     return (
@@ -11,15 +13,18 @@ const index = () => {
                         <Typography variant="h3">Get in Touch</Typography>
                         <br />
                         <Typography>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing
-                            elit. Ipsum quos delectus, accusamus tempore
-                            reiciendis ducimus, ex temporibus quam dolor
-                            voluptas at nostrum rerum autem ullam odio nisi,
-                            maxime praesentium magni.
+                            Have a comment or suggestion? Feel a strong urge to
+                            tell us how much you like or hate one of our
+                            stories? Just want to shoot the shit? Send us a
+                            comment!
+                        </Typography>
+                        <br />
+                        <Typography>
+                            Or email us at daedalusfiction@gmail.com.
                         </Typography>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        {/* <ContactForm config={contactConfig} /> */}
+                        <ContactForm config={contactConfig} />
                     </Grid>
                 </Grid>
             </Container>

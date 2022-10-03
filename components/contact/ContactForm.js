@@ -21,9 +21,9 @@ const ContactForm = ({ config }) => {
     const handleSendEmail = () => {
         const templateParams = {
             website: formData.website,
-            email: formData.fields[0].value,
-            interest: formData.fields[1].value,
-            service: formData.fields[2].value,
+            name: formData.fields[0].value,
+            email: formData.fields[1].value,
+            comment: formData.fields[2].value,
         };
 
         emailjs
