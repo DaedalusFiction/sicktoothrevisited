@@ -375,9 +375,9 @@ const galleryConfig = {
 };
 
 const subscribeConfig = {
-    website: "magazine-template",
+    website: "SICKTOOTH",
     category: "contact",
-    fields: [{ name: "Name", type: "text", value: "" }],
+    fields: [{ name: "Email", type: "text", value: "" }],
 };
 
 // 7. About
