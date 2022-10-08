@@ -55,7 +55,7 @@ const ArticlePreview = ({ item, category, hideImage }) => {
                 <Typography
                     variant="h4"
                     className="link"
-                    sx={{ fontSize: "1.5rem", textTransform: "uppercase" }}
+                    sx={{ textTransform: "uppercase" }}
                 >
                     <Link href={itemHref}>{item.fields[0].value}</Link>
                 </Typography>

@@ -40,7 +40,6 @@ const PublicationBody = ({ sidebarItems, story, sidebarCategory }) => {
                     sx={{
                         marginTop: "3em",
                         fontStyle: "italic",
-                        textAlign: "end",
                     }}
                 >
                     Published{" "}

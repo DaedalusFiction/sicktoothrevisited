@@ -70,8 +70,9 @@ theme = createTheme(theme, {
         h4: {
             color: theme.palette.custom.primary,
             fontFamily: "Playfair Display",
-            fontSize: "1.75rem",
-            fontWeight: "400",
+            fontSize: "1.5rem",
+            fontWeight: "600",
+            marginBottom: ".5em",
             // color: darkTheme.palette.custom.dark,
         },
         h5: {
