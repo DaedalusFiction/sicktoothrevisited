@@ -1,6 +1,6 @@
 import { Divider, Grid, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
 import React from "react";
 import StoryPreview from "../../../components/home/StoryPreview";
 import PageLayout from "../../../components/layout/PageLayout";
@@ -26,7 +26,8 @@ export const getStaticProps = async (context) => {
     const publicationsRef = collection(db, "publications");
     const fictionQuery = query(
         publicationsRef,
-        where("categories", "array-contains", "fiction")
+        where("categories", "array-contains", "fiction"),
+        orderBy("dateUploaded", "desc")
     );
 
     const fictionSnapshot = await getDocs(fictionQuery);
