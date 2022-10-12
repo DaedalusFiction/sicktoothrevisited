@@ -7,36 +7,36 @@ import theme from "../../styles/themes/theme";
 const SocialMediaIcons = ({ fontSize, color }) => {
     return (
         <Stack direction="row" spacing={1}>
-            <Tooltip title="twitter">
-                <Link href="https://instagram.com">
-                    <IconButton>
+            <Link href="https://instagram.com">
+                <Tooltip title="instagram">
+                    <IconButton aria-label="instagram">
                         <InstagramIcon
                             color={color}
                             sx={{ fontSize: fontSize }}
                         />
                     </IconButton>
-                </Link>
-            </Tooltip>
-            <Tooltip title="twitter">
-                <Link href="https://instagram.com">
-                    <IconButton>
+                </Tooltip>
+            </Link>
+            <Link href="https://facebook.com">
+                <Tooltip title="facebook">
+                    <IconButton aria-label="facebook">
                         <FacebookIcon
                             color={color}
                             sx={{ fontSize: fontSize }}
                         />
                     </IconButton>
-                </Link>
-            </Tooltip>
-            <Tooltip title="twitter">
-                <Link href="https://instagram.com">
-                    <IconButton>
+                </Tooltip>
+            </Link>
+            <Link href="https://twitter.com">
+                <Tooltip title="twitter">
+                    <IconButton aria-label="twitter">
                         <TwitterIcon
                             color={color}
                             sx={{ fontSize: fontSize }}
                         />
                     </IconButton>
-                </Link>
-            </Tooltip>
+                </Tooltip>
+            </Link>
         </Stack>
     );
 };

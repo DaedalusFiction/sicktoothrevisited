@@ -15,22 +15,9 @@ const Meta = () => {
                 )}
                 <meta
                     name="keywords"
-                    content="art, design, photography, living space, interior decorating"
+                    content="literature, literary, stories, story, poetry, poems, poem, magazine, fiction, non-fiction, journal"
                 />
-                <link
-                    rel="preload"
-                    href="/fonts/EBGaramond-VariableFont_wght.ttf"
-                    as="font"
-                    crossOrigin=""
-                    type="font/truetype"
-                />
-                <link
-                    rel="preload"
-                    href="/fonts/Raleway-VariableFont_wght.ttf"
-                    as="font"
-                    crossOrigin=""
-                    type="font/truetype"
-                />
+                <meta name="description" content="Literary Magazine"></meta>
             </Head>
         </div>
     );

@@ -14,10 +14,12 @@ import PoemPreview from "../components/home/PoemPreview";
 import StoryPreview from "../components/home/StoryPreview";
 import ArticlePreview from "../components/home/ArticlePreview";
 import { db } from "../firebase";
+import Meta from "../components/home/Meta";
 
 export default function Home({ poems, fiction, articles }) {
     return (
         <Container maxWidth="xl" sx={{ paddingTop: "8rem" }}>
+            <Meta />
             <Grid container>
                 <Grid item xs={12} md={2.75}>
                     {poems &&

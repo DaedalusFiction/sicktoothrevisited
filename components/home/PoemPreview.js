@@ -32,7 +32,7 @@ const PoemPreview = ({ poem }) => {
                                 naturalHeight,
                             }) => handleLoaded(naturalWidth, naturalHeight)}
                             layout="responsive"
-                            alt={poem.description}
+                            alt="poem"
                         />
                     </div>
                 </Fade>
